@@ -1,0 +1,21 @@
+<template bindable="loading, message" class="${loading ? 'loading' : ''}">
+    <style type="text/css">
+        loader {
+            background: rgba(255, 255, 255, 0.6);
+            display: none;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+        loader.loading {
+            display: block;
+            z-index: 999;
+        }
+    </style>
+    <div class="ui active dimmer">
+        <div class="ui massive text loader">${message}</div>
+      </div>
+</template>

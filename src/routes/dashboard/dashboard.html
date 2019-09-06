@@ -1,0 +1,20 @@
+<template>
+    <div id="view" ui-cards>
+        <div ui-card repeat.for="card of cards">
+            <div class="content">
+                <div class="ui grid">
+                    <div class="eight wide column">
+                        <i class="${card.color} huge ${card.icon} icon"></i>
+                    </div>
+                    <div class="eight wide column">
+                        <p class="right aligned header">${card.header}</p>
+                        <p class="right aligned header"><span class="ui big text">${card.headerCount}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="extra content">
+                <i ui-icon="name.bind: card.secIcon"></i>${card.date}
+            </div>
+        </div>
+    </div>
+</template>

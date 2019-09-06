@@ -1,0 +1,21 @@
+<template bindable="entities,isLoading">
+    <div class="ui active dimmer" show.bind="isLoading">
+        <div ui-loader="active.bind: isLoading"></div>
+    </div>
+    <table class="striped celled sortable selectable very compact ${appState.theme.primary}" ui-table>
+        <thead>
+            <th sortable="text">品名</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr repeat.for="obj of entities.data">
+                <td><a class="btn btn-xs" route-href="route: details; params.bind: { id: obj.id }">${obj.text}</a></td>
+                <td>
+                    <a class="btn btn-xs" href="#products/edit/${obj.id}"><i class="edit icon" data-content="Edit"></i></a>
+                    <a class="btn btn-xs" href="#products/${obj.id}"><i class="trash alternate outline icon red"
+                            data-content="Delete"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</template>

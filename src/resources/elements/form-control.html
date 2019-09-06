@@ -1,0 +1,13 @@
+<template>
+  <div class="field">
+    <label for.bind="name">${label}</label>
+    <input type.bind="type" id.bind="name" placeholder.bind="label" value.bind="value" class="mini" if.bind="!required">
+
+    <div class="ui corner labeled input" if.bind="required">
+	  <input type.bind="type" id.bind="name" placeholder.bind="label" value.bind="value" class="mini">
+	  <div class="ui corner label">
+	    <i class="asterisk icon red"></i>
+	  </div>
+	</div>
+  </div>
+</template>

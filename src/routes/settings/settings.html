@@ -1,0 +1,12 @@
+<template>
+    <div id="view">
+        <div ui-dropdown="selection.bind: appState.theme.primary">
+            <input type="hidden" value.bind="appState.theme.primary">
+            <i class="dropdown icon"></i>
+            <div class="default text">Select</div>
+            <div class="menu">
+                <div class="item" data-value.bind="color" repeat.for="color of colors">${color}</div>
+            </div>
+        </div>
+    </div>
+</template>

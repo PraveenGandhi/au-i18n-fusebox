@@ -1,0 +1,80 @@
+<template>
+    <style type="text/css">
+      body {
+        background-color: #DADADA;
+      }
+  
+      #loginContent {
+        height: 100% !important;
+        -webkit-animation: fadeInRight 0.5s;
+        animation: fadeInRight 0.5s;
+        animation-timing-function: cubic-bezier(.07,.39,.29,.98);
+      }
+      .footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background: #fff;
+        height: 42px;
+        padding: 8px 10px 10px !important;
+        border-top: 1px solid #DADADA; 
+      }
+      .footer p a img{
+        height: 30px;
+        width: 30px;
+      }
+      .footer p i, .footer p{
+        margin-right: 0 !important;
+        margin-top: 3px;
+      }
+      .footer p{
+        margin-top: 15px;
+        margin-bottom: 0;
+        font-weight: normal;
+      }
+    </style>
+    <div class="ui active dimmer" if.bind="appState.loadingMessage">
+        <div class="ui massive text loader">${appState.loadingMessage}</div>
+    </div>
+    <div class="ui middle aligned center aligned grid animated" id="loginContent">
+      <div class="column" style="max-width: 400px;">
+        <div class="ui icon error message" if.bind="loginFailed">
+            <i class="lock icon"></i>
+            <div class="content">
+              <div class="header">
+                  ${loginFailed}
+              </div>
+              <p>${loginFailed}!</p>
+            </div>
+          </div>
+        <form class="ui large form" submit.delegate="login()">
+          <div class="ui raised segment">
+            <h1 class="ui purple header" t="login.title">App Login</h1>
+            <div class="ui horizontal divider">
+                <h3 class="ui purple header">ーーーーーーーーーーーーーー</h3>
+            </div>
+            <!-- <a ui-button class="inverted big ${appState.theme.primary}" href="/appState/google"><i class="google plus icon"></i> Login With Google</a>
+            <div class="ui horizontal ${appState.theme.primary} divider">
+              <h2 class="ui ${appState.theme.primary} header">OR</h2>
+            </div> -->
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="email" name="email" value.bind="email" placeholder="E-Mail" required>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password" value.bind="password" placeholder="Password" required>
+              </div>
+            </div>
+            <button type="submit" class="ui purple big inverted button"><i class="ui unlock alternate icon"></i>Login</button>
+            <button type="button" class="ui right floated secondary big inverted button" click.delegate="register()"><i class="user icon"></i>Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer></footer>
+  </template>

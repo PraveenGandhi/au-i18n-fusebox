@@ -1,0 +1,91 @@
+<template>
+  <require from="./app.css"></require>
+  <div class="ui active dimmer" if.bind="appState.loadingMessage">
+    <div class="ui massive text loader">${appState.loadingMessage}</div>
+  </div>
+  <div class="admin">
+    <!--navbar mobile-->
+    <div class="ui fixed main menu borderless">
+      <a class="launch icon item" style="padding-top:10px">
+        <h5 class="ui ${appState.theme.primary} header logoImg">
+          <i class="shipping fast icon"></i>App
+        </h5>
+      </a>
+      <span class="item">
+        <h5 class="ui ${appState.theme.primary} huge header">
+          ${appState.viewName}
+        </h5>
+      </span>
+      <div class="right menu">
+        <div class="ui simple dropdown left justified item">
+          <i class="user icon"></i>${appState.loggedInUser}! <i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item" click.trigger="logout()"><i class="power off icon"></i>ログアウト</a>
+            <a class="item" route-href="route: settings"><i class="cogs icon"></i>設定</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--navbar mobile-->
+    <!--sidebar mobile-->
+    <div ui-sidebar class="vertical push menu" id="toc">
+      <br>
+      <br>
+      <br>
+      <a repeat.for="row of router.navigation" href.bind="row.href"
+        class="ui item ${row.isActive ? 'active ' + appState.theme.primary : ''}">
+        <i class="ui icon ${row.settings.icon}"></i>${row.title}
+      </a>
+    </div>
+    <!--sidebar mobile-->
+    <div class="pusher">
+      <div class="full height">
+        <div class="toc">
+          <div ui-sidebar class="visible left vertical menu no-border sidemenu">
+            <a repeat.for="row of router.navigation" href.bind="row.href"
+              class="ui item ${row.isActive ? 'active ' + appState.theme.primary : ''}">
+              <i class="ui icon ${row.settings.icon}"></i>${row.title}
+            </a>
+          </div>
+        </div>
+        <div class="article">
+          <!--Load Navbar Menu In App.js loadhtml function-->
+          <div class="navbarmenu">
+            <div class="ui fixed top  menu no-border no-radius borderless navmenu">
+              <a class="item active no-padding logo" style="width:250px;">
+                <h2 class="ui ${appState.theme.primary} header image logoImg">
+                  <i class="database icon"></i>App
+                </h2>
+              </a>
+              <a class="item hamburger" data-name="show">
+                <i class="align justify ${appState.theme.primary} icon"></i><span
+                  class="ui text big ${appState.theme.primary}">${appState.viewName}</span>
+              </a>
+              <div class="right menu">
+                <div class="ui simple ${appState.theme.primary} dropdown item">
+                  <i class="user ${appState.theme.primary} icon"></i>${appState.loggedInUser}! <i class="dropdown ${appState.theme.primary} icon"></i>
+                  <div class="${appState.theme.primary} menu">
+                    <a class="item" click.trigger="logout()"><i class="power off icon"></i>ログアウト</a>
+                    <a class="item" route-href="route: settings"><i class="cogs icon"></i>設定</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Load Navbar Menu In App.js loadhtml function-->
+          <!--Begin Container-->
+          <div class="containerli">
+            <div class="ui equal width left aligned padded grid stackable">
+              <div class="row">
+                <div class="sixteen wide column">
+                  <router-view></router-view>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer></footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

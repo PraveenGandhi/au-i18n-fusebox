@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": true,
+        "noImplicitAny": false,
+        "noImplicitUseStrict": false,
+        "strictNullChecks": true,
+        "noEmitHelpers": false,
+        "noImplicitReturns": true,
+        "noUnusedParameters": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitThis": false,
+        "noUnusedLocals": true,
+        "allowUnreachableCode": false,
+        "removeComments": true,
+        "noLib": false,
+        "lib": ["es2017", "dom"],
+        "outDir": "dist/"
+    }
+}

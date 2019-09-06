@@ -1,0 +1,31 @@
+{
+  "license": "MIT",
+  "author": {
+    "name": "Praveen"
+  },
+  "scripts": {
+    "start": "node fuse dev",
+    "build": "node fuse prod"
+  },
+  "devDependencies": {
+    "fuse-box": "^3.7.1",
+    "fuse-box-typechecker": "^2.10.0",
+    "tslint": "^5.19.0",
+    "typescript": "^3.6.2",
+    "terser": "^4.2.1"
+  },
+  "dependencies": {
+    "@feathersjs/authentication-client": "^4.3.0",
+    "@feathersjs/feathers": "^4.3.0",
+    "@feathersjs/rest-client": "^4.3.0",
+    "@feathersjs/socketio-client": "^4.3.0",
+    "aurelia-bootstrapper": "^2.3.3",
+    "aurelia-i18n": "^3.0.0-beta.7",
+    "aurelia-semantic-ui": "^0.2.0",
+    "fuse-box-aurelia-loader": "^2.0.2",
+    "jquery": "^3.4.1",
+    "jquery.nicescroll": "^3.7.6",
+    "socket.io-client": "^2.2.0",
+    "tslib": "^1.10.0"
+  }
+}
