@@ -10,9 +10,9 @@
   "devDependencies": {
     "fuse-box": "^3.7.1",
     "fuse-box-typechecker": "^2.10.0",
+    "terser": "^4.2.1",
     "tslint": "^5.19.0",
-    "typescript": "^3.6.2",
-    "terser": "^4.2.1"
+    "typescript": "^3.6.2"
   },
   "dependencies": {
     "@feathersjs/authentication-client": "^4.3.0",
@@ -23,6 +23,7 @@
     "aurelia-i18n": "^3.0.0-beta.7",
     "aurelia-semantic-ui": "^0.2.0",
     "fuse-box-aurelia-loader": "^2.0.2",
+    "i18next-xhr-backend": "^3.1.2",
     "jquery": "^3.4.1",
     "jquery.nicescroll": "^3.7.6",
     "socket.io-client": "^2.2.0",

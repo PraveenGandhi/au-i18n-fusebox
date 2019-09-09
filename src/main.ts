@@ -1,7 +1,8 @@
 import { Aurelia } from 'aurelia-framework';
 import { AppState } from './services/app-state';
 import { Container } from 'aurelia-dependency-injection';
-import { Backend, TCustomAttribute} from 'aurelia-i18n';
+import { TCustomAttribute} from 'aurelia-i18n';
+import * as XHR from 'i18next-xhr-backend';
 
 export async function configure(aurelia: Aurelia) {
     aurelia.use
@@ -15,13 +16,13 @@ export async function configure(aurelia: Aurelia) {
             TCustomAttribute.configureAliases(aliases);
       
             // register backend plugin
-            instance.i18next.use(Backend.with(aurelia.loader));
+            instance.i18next.use(XHR);
       
             // adapt options to your needs (see http://i18next.com/docs/options/)
             // make sure to return the promise of the setup method, in order to guarantee proper loading
             return instance.setup({
               backend: {                                  // <-- configure backend settings
-                loadPath: 'locales/{{lng}}/{{ns}}.json', // <-- XHR settings for where to get the files from
+                loadPath: 'static/locales/{{lng}}/{{ns}}.json', // <-- XHR settings for where to get the files from
               },
               attributes: aliases,
               lng : 'jp',

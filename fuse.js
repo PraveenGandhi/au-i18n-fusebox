@@ -1,4 +1,4 @@
-const { RawPlugin,FuseBox, JSONPlugin, HTMLPlugin,CSSPlugin, EnvPlugin, TerserPlugin, WebIndexPlugin } = require("fuse-box");
+const { RawPlugin,FuseBox, HTMLPlugin,CSSPlugin, EnvPlugin, TerserPlugin, WebIndexPlugin } = require("fuse-box");
 const { src, task } = require("fuse-box/sparky");
 var TypeHelper = require('fuse-box-typechecker').TypeHelper
 var autoLoadAureliaLoaders =function() {
@@ -41,7 +41,6 @@ let run = (production) => {
             CSSPlugin(),
             EnvPlugin(env),
             HTMLPlugin(),
-            JSONPlugin(),
             RawPlugin(['.css', '.woff','.png']),
             WebIndexPlugin({template:'./index.html'})
         ]
@@ -74,6 +73,7 @@ let run = (production) => {
         + @feathersjs/socketio-client
         + @feathersjs/authentication-client
         + fuse-box-css
+        + i18next-xhr-backend
         + aurelia-bootstrapper
         + fuse-box-aurelia-loader
         + aurelia-framework
@@ -103,7 +103,7 @@ let run = (production) => {
             .watch().hmr({reload : true})
             .instructions(`
             > [main.ts]
-            + [**/*.{ts,html,css,json}]
+            + [**/*.{ts,html,css}]
         `);
         fuse.dev();
 
@@ -112,7 +112,7 @@ let run = (production) => {
             //.watch().hmr({reload : true})
             .instructions(`
             > [main.ts]
-            + [**/*.{ts,html,css,json}]
+            + [**/*.{ts,html,css}]
         `);
         //fuse.dev();
     }
